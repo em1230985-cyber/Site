@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Game Mods</title>
+    <title>Profile - Sonchoigame</title>
     <style>
         /* CSS Trang trí */
         * {
@@ -35,8 +35,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
 
         /* Avatar */
@@ -73,7 +71,7 @@
             margin-bottom: 25px;
         }
 
-        /* Nút Link chuyển hướng */
+        /* Nút Link chuyển hướng Game */
         .link-card {
             display: block;
             text-decoration: none;
@@ -92,7 +90,6 @@
             border-color: #a855f7;
         }
 
-        /* Ảnh Preview trong nút */
         .link-preview {
             width: 100%;
             height: auto;
@@ -100,7 +97,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Nội dung chữ trong nút */
         .link-content {
             padding: 15px;
             text-align: left;
@@ -123,7 +119,6 @@
             color: #a1a1aa;
         }
 
-        /* Icon mũi tên */
         .arrow-icon {
             background: rgba(168, 85, 247, 0.2);
             color: #a855f7;
@@ -136,7 +131,6 @@
             font-weight: bold;
         }
 
-        /* Hiệu ứng nhấp nháy cho chữ NEW */
         .badge-new {
             background: #ef4444;
             color: white;
@@ -155,12 +149,26 @@
             100% { opacity: 1; }
         }
 
+        /* --- CSS CHO TRÌNH PHÁT NHẠC SOUNDCLOUD --- */
+        .music-player {
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /* Giúp iframe hòa hợp với nền tối */
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+        
+        .music-player iframe {
+            display: block;
+        }
+
         /* Nút phụ (Mạng xã hội) */
         .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .social-btn {
@@ -173,58 +181,13 @@
         .social-btn:hover {
             color: #ffffff;
         }
-
-        /* --- CSS CHO NÚT NHẠC --- */
-        .music-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #a855f7, #3b82f6);
-            color: white;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            transition: transform 0.2s, background 0.3s;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Hiệu ứng xoay khi nhạc đang phát */
-        .playing {
-            animation: spin 3s linear infinite;
-            background: linear-gradient(135deg, #10b981, #3b82f6); /* Đổi màu xanh khi đang phát */
-        }
-
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
 
-    <!-- THẺ ÂM THANH (Thay link MP3 của bạn vào đây) -->
-    <!-- Tôi đang để link nhạc mẫu, bạn hãy thay bằng link file nhạc .mp3 của bạn -->
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ phát âm thanh.
-    </audio>
-
-    <!-- NÚT BẬT TẮT NHẠC -->
-    <button id="musicBtn" class="music-btn" title="Bật/Tắt nhạc">🎵</button>
-
     <div class="profile-container">
         
-        <!-- PHẦN AVATAR (Dùng ảnh 1) -->
+        <!-- PHẦN AVATAR -->
         <div class="avatar-container">
             <img src="avatar.jpg" alt="Avatar" class="avatar">
         </div>
@@ -233,7 +196,19 @@
         <h1>Sonchoigame</h1>
         <p class="bio">Kho Game & Ứng Dụng Mod iOS/Android</p>
 
-        <!-- PHẦN LINK CHUYỂN HƯỚNG MỚI CỦA BẠN -->
+        <!-- TRÌNH PHÁT NHẠC SOUNDCLOUD (Đã gắn bài Dấu Đường Xó Chợ) -->
+        <div class="music-player">
+            <iframe 
+                width="100%" 
+                height="120" 
+                scrolling="no" 
+                frameborder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//on.soundcloud.com/wHWPK0U2jFXHgZM8w&color=%23a855f7&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+            </iframe>
+        </div>
+
+        <!-- PHẦN LINK TẢI GAME -->
         <a href="https://drive.usercontent.google.com/download?id=13Eo56-OTxsU_WrKjF9I-B44t-kbWJr3j&export=download&authuser=0" target="_blank" class="link-card">
             
             <img src="preview.jpg" alt="Preview Web" class="link-preview">
@@ -249,7 +224,7 @@
             </div>
         </a>
 
-        <!-- CÁC NÚT LIÊN KẾT PHỤ (Tùy chọn) -->
+        <!-- CÁC NÚT LIÊN KẾT PHỤ -->
         <div class="social-links">
             <a href="#" class="social-btn">Facebook</a>
             <a href="#" class="social-btn">Telegram</a>
@@ -257,26 +232,6 @@
         </div>
 
     </div>
-
-    <!-- ĐOẠN JAVASCRIPT ĐỂ ĐIỀU KHIỂN NHẠC -->
-    <script>
-        const audio = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-        let isPlaying = false;
-
-        musicBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                musicBtn.classList.remove('playing');
-                musicBtn.innerHTML = '🎵'; // Đổi lại icon nốt nhạc
-            } else {
-                audio.play();
-                musicBtn.classList.add('playing');
-                musicBtn.innerHTML = '⏸️'; // Đổi thành icon tạm dừng
-            }
-            isPlaying = !isPlaying;
-        });
-    </script>
 
 </body>
 </html>
