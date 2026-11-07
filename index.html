@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Game Mods</title>
+    <style>
+        /* CSS Trang trí */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d0d12;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at top right, #2a1b41, transparent 40%),
+                              radial-gradient(circle at bottom left, #1b2a41, transparent 40%);
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(20, 20, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        /* Avatar */
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #a855f7; /* Viền tím */
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+            padding: 3px;
+            background-color: #1a1a24;
+        }
+
+        /* Tên và Tiểu sử */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.bio {
+            color: #a1a1aa;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* Nút Link chuyển hướng */
+        .link-card {
+            display: block;
+            text-decoration: none;
+            background: #1a1a24;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #3b82f6;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            border-color: #a855f7;
+        }
+
+        /* Ảnh Preview trong nút */
+        .link-preview {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Nội dung chữ trong nút */
+        .link-content {
+            padding: 15px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .link-text h3 {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .link-text p {
+            font-size: 12px;
+            color: #a1a1aa;
+        }
+
+        /* Icon mũi tên */
+        .arrow-icon {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Hiệu ứng nhấp nháy cho chữ NEW */
+        .badge-new {
+            background: #ef4444;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Nút phụ (Mạng xã hội) */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .social-btn:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        
+        <!-- PHẦN AVATAR (Dùng ảnh 1) -->
+        <div class="avatar-container">
+            <!-- Thay 'avatar.jpg' bằng tên file ảnh viên bi của bạn -->
+            <img src="avatar.jpg" alt="Avatar" class="avatar">
+        </div>
+
+        <!-- PHẦN TIÊU ĐỀ -->
+        <h1>Sonchoigame</h1>
+        <p class="bio">Kho Game & Ứng Dụng Mod iOS/Android</p>
+
+        <!-- PHẦN LINK CHUYỂN HƯỚNG (Dùng ảnh 2 làm ảnh Preview) -->
+        <!-- Thay link https://nsmod.github.io vào href bên dưới -->
+        <a href="https://nsmod.github.io" target="_blank" class="link-card">
+            <!-- Thay 'preview.jpg' bằng tên file ảnh giao diện web của bạn -->
+            <img src="preview.jpg" alt="Preview Web" class="link-preview">
+            
+            <span class="badge-new">NEW</span>
+            
+            <div class="link-content">
+                <div class="link-text">
+                    <h3>iPA MENU NO KEY 8BP</h3>
+                    <p>UNLOCK CƠ, AIM NHANH, KHÔNG BAN BXH,...</p>
+                </div>
+                <div class="arrow-icon">➔</div>
+            </div>
+        </a>
+
+        <!-- CÁC NÚT LIÊN KẾT PHỤ (Tùy chọn) -->
+        <div class="social-links">
+            <a href="#" class="social-btn">Facebook</a>
+            <a href="#" class="social-btn">Telegram</a>
+            <a href="#" class="social-btn">TikTok</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
