@@ -35,6 +35,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         /* Avatar */
@@ -50,7 +52,7 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #a855f7; /* Viền tím */
+            border: 3px solid #a855f7;
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
             padding: 3px;
             background-color: #1a1a24;
@@ -171,15 +173,59 @@
         .social-btn:hover {
             color: #ffffff;
         }
+
+        /* --- CSS CHO NÚT NHẠC --- */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hiệu ứng xoay khi nhạc đang phát */
+        .playing {
+            animation: spin 3s linear infinite;
+            background: linear-gradient(135deg, #10b981, #3b82f6); /* Đổi màu xanh khi đang phát */
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- THẺ ÂM THANH (Thay link MP3 của bạn vào đây) -->
+    <!-- Tôi đang để link nhạc mẫu, bạn hãy thay bằng link file nhạc .mp3 của bạn -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ phát âm thanh.
+    </audio>
+
+    <!-- NÚT BẬT TẮT NHẠC -->
+    <button id="musicBtn" class="music-btn" title="Bật/Tắt nhạc">🎵</button>
 
     <div class="profile-container">
         
         <!-- PHẦN AVATAR (Dùng ảnh 1) -->
         <div class="avatar-container">
-            <!-- Thay 'avatar.jpg' bằng tên file ảnh viên bi của bạn -->
             <img src="avatar.jpg" alt="Avatar" class="avatar">
         </div>
 
@@ -187,10 +233,9 @@
         <h1>Sonchoigame</h1>
         <p class="bio">Kho Game & Ứng Dụng Mod iOS/Android</p>
 
-        <!-- PHẦN LINK CHUYỂN HƯỚNG (Dùng ảnh 2 làm ảnh Preview) -->
-        <!-- Thay link https://nsmod.github.io vào href bên dưới -->
-        <a href="https://nsmod.github.io" target="_blank" class="link-card">
-            <!-- Thay 'preview.jpg' bằng tên file ảnh giao diện web của bạn -->
+        <!-- PHẦN LINK CHUYỂN HƯỚNG MỚI CỦA BẠN -->
+        <a href="https://drive.usercontent.google.com/download?id=13Eo56-OTxsU_WrKjF9I-B44t-kbWJr3j&export=download&authuser=0" target="_blank" class="link-card">
+            
             <img src="preview.jpg" alt="Preview Web" class="link-preview">
             
             <span class="badge-new">NEW</span>
@@ -212,6 +257,26 @@
         </div>
 
     </div>
+
+    <!-- ĐOẠN JAVASCRIPT ĐỂ ĐIỀU KHIỂN NHẠC -->
+    <script>
+        const audio = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.classList.remove('playing');
+                musicBtn.innerHTML = '🎵'; // Đổi lại icon nốt nhạc
+            } else {
+                audio.play();
+                musicBtn.classList.add('playing');
+                musicBtn.innerHTML = '⏸️'; // Đổi thành icon tạm dừng
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
 
 </body>
 </html>
